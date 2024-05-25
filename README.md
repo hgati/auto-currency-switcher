@@ -1,4 +1,4 @@
-# Auto Currency Switcher 2 - Magento 2 Extension
+# Auto Currency Switcher - Magento 2 Extension
 
 Automatically switches shop's currency to visitor's local currency - "Magento 2" Extension 
 
