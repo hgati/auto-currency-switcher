@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Hgati\AutoCurrencySwitcher\Plugin;
 
 use Hgati\AutoCurrencySwitcher\Helper\Data;
@@ -53,7 +55,7 @@ class FrontControllerInterface
             $newCurrency = $this->getCurrencyCodeByIp($currentCurrency);
             if ($currentCurrency !== $newCurrency) {
                 $this->storeManager->getStore()->setCurrentCurrencyCode($newCurrency);
-                unset($_COOKIE[\Magento\Framework\App\Response\Http::COOKIE_VARY_STRING]);
+                unset($_COOKIE[\Magento\Framework\App\Response\Http::COOKIE_VARY_STRING]); // X-Magento-Vary (아마도 Varnish 캐싱때문??)
             }
         }
         return $proceed($request);
@@ -65,7 +67,7 @@ class FrontControllerInterface
      * @param string $result Currency Code
      * @return string $currencyCode
      */
-    public function getCurrencyCodeByIp($result = '')
+    public function getCurrencyCodeByIp($result = ''): string
     {
         $currencyCode = $this->getCurrencyCodeIp2Country($result);
         // if currencyCode is not present in allowedCurrencies
@@ -85,7 +87,7 @@ class FrontControllerInterface
      * @param string $result Currency Code
      * @return string $currencyCode
      */
-    public function getCurrencyCodeIp2Country($result = '')
+    public function getCurrencyCodeIp2Country($result = ''): string
     {
         $countryCode = getenv('GEOIP_COUNTRY_CODE');
         $currencyCode = $this->helper->getCurrencyByCountry($countryCode);
