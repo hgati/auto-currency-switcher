@@ -1,0 +1,25 @@
+{
+  "name": "hgati/auto-currency-switcher",
+  "description": "Automatic Currency Switcher Extension for Magento 2",
+  "type": "magento2-module",
+  "version": "2.1.2",
+  "keywords": ["magento", "currency", "switcher"],
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+        "name": "Dennis",
+        "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Hgati\\AutoCurrencySwitcher\\": ""
+    }
+  }
+}
