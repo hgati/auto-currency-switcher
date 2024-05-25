@@ -23,7 +23,7 @@ This extension uses `Nginx GeoIP2` databases for IP Address lookup.
 1. Go to your Magento website’s root directory with the following command:
     - `cd /path/to/your/magento/root/directory`
 2. Run the following command:
-    - `composer require hgati/auto-currency-switcher`
+    - `composer require hgati/auto-currency-switcher:dev-master`
 3. Enable the module and clear static content with the following command:
     - `php bin/magento module:enable Hgati_AutoCurrencySwitcher –clear-static-content`
 4. Do setup upgrade with the following command:
