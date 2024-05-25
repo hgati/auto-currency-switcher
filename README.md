@@ -4,7 +4,7 @@ Automatically switches shop's currency to visitor's local currency - "Magento 2"
 
 Auto Currency extension tracks visitor's IP address and automatically changes the store currency to the visitor's location currency. Visitor can switch to his/her desired currency at any time.
 
-This extension uses `Webnet77's Ip2Country` IP Address databases for IP Address lookup. 
+This extension uses `Nginx GeoIP2` databases for IP Address lookup. 
 
 ## Prerequisite ##
 
@@ -34,13 +34,5 @@ This extension uses `Webnet77's Ip2Country` IP Address databases for IP Address 
 1. Login to your Magento site's admin
 2. Go to `STORES → Settings → Configuration` page
 3. On left sidebar, click on `CHAPAGAIN EXTENSIONS → Auto Currency` menu
-4. From there, you can Enable/Disable the module. The module is enabled by default.
+4. From there, you can Enable/Disable the module. The module is disabled by default.
 
-## Updating GeoIP Databases ##
-
-The GeoIP database should be updated from time to time in order to make this extension work accurately. 
-
-1. Download [IPV4 CSV](http://software77.net/geo-ip/) file
-2. Extract the file. This will extract `IPtoCountry.csv` file.
-3. Use [Ip2Country lookup classes for PHP](https://github.com/mgefvert/Ip2Country) to create binary-optimized version of the csv file.
-4. Upload the binary file (`.dat` file) to your `[Module Folder]/geoip/ip2country/` folder.
