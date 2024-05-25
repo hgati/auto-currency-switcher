@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Hgati\AutoCurrencySwitcher\Helper;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -24,10 +26,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 	 * 
 	 * @return boolean 0 or 1
 	 */ 
-	public function isEnabled()
+	public function isEnabled(): bool
     {
-		$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;	
-        return $this->scopeConfig->getValue(self::XML_PATH_AUTOCURRENCY_ENABLED, $storeScope);
+		$storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+		$isEnabled = $this->scopeConfig->getValue(self::XML_PATH_AUTOCURRENCY_ENABLED, $storeScope);
+		$isEnabled = ($isEnabled==='1') ? true : false;
+        return $isEnabled;
     }
         
 	/**
@@ -35,8 +39,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 	 * 
 	 * @return string
 	 */ 
-	public function getCurrencyByCountry($countryCode)
+	public function getCurrencyByCountry($countryCode): string
 	{
+		if($countryCode=='US**') $countryCode='';
+
 		$map = array( '' => '',
 		"EU" => "EUR", "AD" => "EUR", "AE" => "AED", "AF" => "AFN", "AG" => "XCD", "AI" => "XCD", 
 		"AL" => "ALL", "AM" => "AMD", "CW" => "ANG", "AO" => "AOA", "AQ" => "AQD", "AR" => "ARS", "AS" => "EUR", 
@@ -81,7 +87,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 		"AX" => "EUR", "GG" => "GBP", "IM" => "GBP", 
 		"JE" => "GBP", "BL" => "EUR", "MF" => "EUR", "BQ" => "USD", "SS" => "SSP"
 		);
-		
+
 		return $map[$countryCode];
 	}
 }
