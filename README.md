@@ -6,6 +6,8 @@ Auto Currency extension tracks visitor's IP address and automatically changes th
 
 This extension uses `Nginx GeoIP2` databases for IP Address lookup. 
 
+**Warning!! If you prefer to dynamically change content or reroute the user based on language settings, be aware that Google might not find and crawl all your variations. This is because the Googlebot crawler usually originates from the USA. In addition, the crawler sends HTTP requests without setting Accept-Language in the request header. In other words, This extension is bad on Google SEO**
+
 ## Prerequisite ##
 
 #### Enable Multiple Currency on your Magento 2 Store
