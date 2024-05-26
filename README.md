@@ -6,7 +6,11 @@ Auto Currency extension tracks visitor's IP address and automatically changes th
 
 This extension uses `Nginx GeoIP2` databases for IP Address lookup. 
 
-**Warning!! If you prefer to dynamically change content or reroute the user based on language settings, be aware that Google might not find and crawl all your variations. This is because the Googlebot crawler usually originates from the USA. In addition, the crawler sends HTTP requests without setting Accept-Language in the request header. In other words, This extension is bad on Google SEO**
+**Warning!! Here is Google's official stance on multilingual websites.**
+- If you have multiple versions of a page:
+- **Avoid automatically redirecting users from one language version of a site to a different language version of a site**. For example, don't redirect based on what you think the user's language may be. These redirections could prevent users (and search engines) from viewing all the versions of your site.
+- Consider adding hyperlinks to other language versions of a page. That way users can click to choose a different language version of the page.
+- **Therefore, using this extension is highly discouraged as it can have a very negative impact on Google SEO.**
 
 ## Prerequisite ##
 
